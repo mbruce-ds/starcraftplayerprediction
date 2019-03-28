@@ -9,7 +9,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 import seaborn as sns
-%matplotlib inline
 
 train_features_path = 'features_train.csv'
 test_features_path = 'features_test.csv'

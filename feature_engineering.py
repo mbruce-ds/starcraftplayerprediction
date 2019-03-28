@@ -146,7 +146,7 @@ for dataframe in all_data:
         else:
             X_test.iloc[game] = [race, game_length, apm, epm, control_group_importance['1'], control_group_importance['2'], control_group_importance['3'], control_group_importance['4'], control_group_importance['5'], control_group_importance['6'], control_group_importance['7'], control_group_importance['8'], control_group_importance['9'], control_group_importance['0'], chat_count, comma_usage, worker_box_spam/min(game_length, 7)]
 
-train_features_path = 'features_train.csv'
-test_features_path = 'features_test.csv'
+train_features_path = 'data/features_train.csv'
+test_features_path = 'data/features_test.csv'
 X_train.to_csv(train_features_path, index = False)
 X_test.to_csv(test_features_path, index = False)
