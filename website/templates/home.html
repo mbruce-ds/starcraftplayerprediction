@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>StarCraft II Player Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</head>
+<main>
+    {% extends "template.html" %}
+    
+    {% block content %}
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <h1>Solving the barcode problem</h1>
+                    <p>For years, barcode accounts have plagued the top levels of the StarCraft II ladder. Players who are attempting to be anonymous will play on accounts with names looking like "lllllll" (hence the term barcode) in order to mask their builds or strategies before high profile matches. Solutions such as <a href='http://sc2unmasked.com/'>sc2unmasked</a> exist, but they rely on manually finding info about the barcode accounts, such as matching the games with a player's stream.
+                    </p>
+
+                    <p>This project seeks to attempt to fix this problem. Every StarCraft player has a certain fingerprint, which distinguishes their play compared to that of others. We constructed a model which is trained on games with known player identities.
+                    </p>
+
+                    <p>Given this model, we provide you with two options. The first is to use it to predict who is playing a given game of StarCraft II. All you have to do is upload the replay file from a game, and this website takes care of the rest. Alternatively, if you don't have any prediction needs, something that would be greatly appreciated would be to upload replays where both players are known (i.e., not using barcodes). We will use these replays to better train the model, so that we can make better predictions in the future.</p>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Replay input</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                    </div>
+                    <fieldset class="form-group">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                            Predict players
+                          </label>
+                        </div>
+                        <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                            Add replay to database
+                          </label>
+                        </div>
+                      </fieldset>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    </main>
